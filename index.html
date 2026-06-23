@@ -182,7 +182,54 @@ font-size:34px;
 gap:10px;
 font-size:12px;
 }}
+.popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+z-index:9999;
+}
 
+.popup-content{
+background:white;
+width:320px;
+padding:25px;
+border-radius:10px;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+}
+
+.popup-content h2{
+color:black;
+margin-bottom:15px;
+}
+
+.popup-content input{
+width:100%;
+padding:10px;
+margin-bottom:10px;
+}
+
+.popup-content button{
+width:100%;
+padding:10px;
+background:#0f172a;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+.close-btn{
+float:right;
+font-size:24px;
+cursor:pointer;
+color:black;
+}
 
   @keyframes logoIntro {
 
@@ -209,11 +256,26 @@ transform:translateY(0);
   <span class="logo-s">S</span>
 </div>
   <div class="header-icons">
-    <span class="login-btn">👤 LOGIN ▼</span>
+   <span class="login-btn" onclick="openLogin()">👤 LOGIN ▼</span>
     <span>♡ 0</span>
     <span>🛒</span>
 </div>
 </header>
+  <div id="loginPopup" class="popup">
+  <div class="popup-content">
+
+    <span class="close-btn" onclick="closeLogin()">&times;</span>
+
+    <h2>Login</h2>
+
+    <input type="email" placeholder="Email">
+
+    <input type="password" placeholder="Password">
+
+    <button>Login</button>
+
+  </div>
+</div>
 
 <section class="hero">
 <h1>Welcome to Trendspellkart</h1>
@@ -308,6 +370,14 @@ Trendspellkart brings quality kitchen products, home decor items and daily utili
 href="https://wa.me/918318426421">
 WhatsApp
 </a>
+<script>
+function openLogin(){
+document.getElementById("loginPopup").style.display="block";
+}
 
+function closeLogin(){
+document.getElementById("loginPopup").style.display="none";
+}
+</script>
 </body>
 </html>
