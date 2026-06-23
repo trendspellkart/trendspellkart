@@ -31,6 +31,9 @@ align-items:center;
 .logo{
 font-size:28px;
 font-weight:bold;
+
+opacity:0;
+animation:logoIntro 1.5s ease forwards;
 }
 
 .hero{
@@ -135,6 +138,21 @@ font-weight:bold;
 .hero h1{
 font-size:34px;
 }
+}
+
+
+  @keyframes logoIntro {
+
+0%{
+opacity:0;
+transform:translateY(-30px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
 }
 </style>
 </head>
