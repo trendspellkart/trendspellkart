@@ -406,14 +406,16 @@ document.getElementById("loginPopup").style.display="block";
 
 function closeLogin(){
 document.getElementById("loginPopup").style.display="none";
-}function showSignup(){
+}
+  function showSignup(){
+  
 
 document.getElementById("popupTitle").innerText = "Sign Up";
 
 document.getElementById("confirmPassword").style.display = "block";
 
 document.querySelector(".forgot-password").style.display = "none";
-
+document.querySelector("button").innerText = "Sign Up";
 document.querySelector(".signup-link").innerText = "Login";
 
 document.querySelector(".signup-link").setAttribute("onclick","showLogin()");
@@ -422,7 +424,7 @@ document.querySelector(".signup-link").setAttribute("onclick","showLogin()");
 function showLogin(){
 
 document.getElementById("popupTitle").innerText = "Login";
-
+document.querySelector("button").innerText = "Login";
 document.getElementById("confirmPassword").style.display = "none";
 
 document.querySelector(".forgot-password").style.display = "block";
