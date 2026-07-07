@@ -1,0 +1,1 @@
+// TrendSpellKart Main JavaScript
