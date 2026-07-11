@@ -131,7 +131,6 @@ cartOverlay.addEventListener("click", function () {
 
         button.addEventListener("click", function () {
 
-            console.log("ADD TO CART CLICKED");
 
             cartCount++;
 
@@ -139,8 +138,11 @@ cartOverlay.addEventListener("click", function () {
 
             updateCartCount();
             cart.push(products[0]);
-
+            
 localStorage.setItem("cart", JSON.stringify(cart));
+
+            console.log("Cart Saved:", cart);
+console.log("Storage:", localStorage.getItem("cart"));
 
 renderCart();
 
