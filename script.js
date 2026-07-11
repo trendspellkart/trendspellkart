@@ -53,6 +53,11 @@ const products = [
     ]
 }
 ];
+// ==========================================
+// Cart Data
+// ==========================================
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 document.addEventListener("DOMContentLoaded", function () {
 
     console.log("TrendSpellKart Loaded Successfully");
@@ -69,6 +74,7 @@ function initWebsite() {
     setupSearch();
     setupCart();
     setupWishlist();
+    renderCart();
 
 }
 
@@ -131,6 +137,11 @@ cartOverlay.addEventListener("click", function () {
             localStorage.setItem("cartCount", cartCount);
 
             updateCartCount();
+            cart.push(products[0]);
+
+localStorage.setItem("cart", JSON.stringify(cart));
+
+renderCart();
 
             alert("Product added to cart!");
 
@@ -157,5 +168,57 @@ function updateCartCount() {
 function setupWishlist() {
 
     console.log("Wishlist Ready");
+
+}
+// ==========================================
+// Render Cart
+// ==========================================
+
+function renderCart() {
+
+    const cartItems = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+
+    cartItems.innerHTML = "";
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+            <p class="empty-cart">
+                Your cart is empty.
+            </p>
+        `;
+
+        cartTotal.textContent = "0";
+
+        return;
+
+    }
+
+    let total = 0;
+
+    cart.forEach(product => {
+
+        total += product.price;
+
+        cartItems.innerHTML += `
+            <div class="cart-item">
+
+                <img src="${product.image}" width="70">
+
+                <div>
+
+                    <h4>${product.name}</h4>
+
+                    <p>₹${product.price}</p>
+
+                </div>
+
+            </div>
+        `;
+
+    });
+
+    cartTotal.textContent = total;
 
 }
