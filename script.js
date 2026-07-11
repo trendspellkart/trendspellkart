@@ -90,6 +90,34 @@ function setupCart() {
 
     updateCartCount();
 
+    const cartBtn = document.getElementById("cart-btn");
+const cartDrawer = document.getElementById("cart-drawer");
+const cartOverlay = document.getElementById("cart-overlay");
+const closeCart = document.getElementById("close-cart");
+
+cartBtn.addEventListener("click", function (e) {
+
+    e.preventDefault();
+
+    cartDrawer.classList.add("active");
+    cartOverlay.classList.add("active");
+
+});
+
+closeCart.addEventListener("click", function () {
+
+    cartDrawer.classList.remove("active");
+    cartOverlay.classList.remove("active");
+
+});
+
+cartOverlay.addEventListener("click", function () {
+
+    cartDrawer.classList.remove("active");
+    cartOverlay.classList.remove("active");
+
+});
+
     const buttons = document.querySelectorAll(".add-cart");
 
 
