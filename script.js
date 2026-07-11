@@ -45,6 +45,8 @@ console.log(buttons);
 
         button.addEventListener("click", function () {
 
+            console.log("Button Clicked");
+
             cartCount++;
 
             localStorage.setItem("cartCount", cartCount);
